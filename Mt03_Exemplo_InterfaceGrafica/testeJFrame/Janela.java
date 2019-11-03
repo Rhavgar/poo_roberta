@@ -19,7 +19,7 @@ public class Janela extends JFrame
 		c.add(painel);
 		
 		
-		JLabel rotulo1 = new JLabel("Informe o nome do usuário: ");
+		JLabel rotulo1 = new JLabel("Informe o nome do usuï¿½rio: ");
 		rotulo1.setToolTipText("username");
 		rotulo1.setLocation(100,200);
 		painel.add(rotulo1);
@@ -34,14 +34,14 @@ public class Janela extends JFrame
 		JPasswordField senha = new JPasswordField(25);
 		painel.add(senha);
 		
-		JLabel rotulo3 = new JLabel("É obrigatório selecionar o(s) perfil(is) desejado(s) para acesso aos sistemas: ");
+		JLabel rotulo3 = new JLabel("ï¿½ obrigatï¿½rio selecionar o(s) perfil(is) desejado(s) para acesso aos sistemas: ");
 		rotulo3.setToolTipText("perfil de acesso");
 		painel.add(rotulo3);
 		/*
 		JCheckBox escolha1 = new JCheckBox("Administrador",false);
 		JCheckBox escolha2 = new JCheckBox("Programador",false);
 		JCheckBox escolha3 = new JCheckBox("DBA",false);
-		JCheckBox escolha4 = new JCheckBox("Usuário Final",true);
+		JCheckBox escolha4 = new JCheckBox("Usuï¿½rio Final",true);
 		JCheckBox escolha5 = new JCheckBox("Testador",false);
 		painel.add(escolha1);
 		painel.add(escolha2);
@@ -52,7 +52,7 @@ public class Janela extends JFrame
 		JRadioButton radio1 = new JRadioButton("Administrador",false);
 		JRadioButton radio2 = new JRadioButton("Programador",false);
 		JRadioButton radio3 = new JRadioButton("DBA",false);
-		JRadioButton radio4 = new JRadioButton("Usuário Final",true);
+		JRadioButton radio4 = new JRadioButton("Usuï¿½rio Final",true);
 		JRadioButton radio5 = new JRadioButton("Testador",false);
 		ButtonGroup grupo = new ButtonGroup();
 		grupo.add(radio1);
@@ -66,14 +66,14 @@ public class Janela extends JFrame
 		painel.add(radio4);
 		painel.add(radio5);
 		
-		String[] perfil = {"Administrador","Programador","DBA","Usuário Final","Testador"};
+		String[] perfil = {"Administrador","Programador","DBA","Usuï¿½rio Final","Testador"};
 		JComboBox combo = new JComboBox(perfil);
 		combo.setMaximumRowCount(4);
 		combo.setEditable(false);
 		painel.add(combo);
 		*/
 		
-		String[] list = {"Administrador","Programador","DBA","Usuário Final","Testador"};
+		String[] list = {"Administrador","Programador","DBA","Usuï¿½rio Final","Testador"};
 		JList lista = new JList (list);
 		lista.setVisibleRowCount(5);	lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lista.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -88,7 +88,7 @@ public class Janela extends JFrame
 		
 		botao1.addActionListener(new ActionListener()
 		{	public void actionPerformed(ActionEvent e)
-			{	JOptionPane.showMessageDialog(null,"USUÁRIO: "+caixa1.getText()+"\nSENHA: "+senha.getText());	}
+			{	JOptionPane.showMessageDialog(null,"USUï¿½RIO: "+caixa1.getText()+"\nSENHA: "+senha.getText());	}
 		});
 		
 		botao2.addActionListener(new ActionListener()
