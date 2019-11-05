@@ -1,5 +1,7 @@
 package persistencia;
 
+import modelo.Funcionario;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -61,7 +63,7 @@ public class DMFuncionario extends DMGeral
 			
 			//montagem da String SQL de consulta na tabela
 			String consultarSQL = "SELECT * FROM funcionario WHERE (cpf = '" + objF.getCpf() + "')";
-			System.out.println("Enviando código SQ: " + getConnection().nativeSQL(consultarSQL));
+			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(consultarSQL));
 			
 			ResultSet result = statement.executeQuery(consultarSQL);
 			
@@ -87,5 +89,59 @@ public class DMFuncionario extends DMGeral
 		}
 		
 		return objF;
+	}
+	
+	public Funcionario buscar(String cpf)
+	{
+		Funcionario objF = new Funcionario();
+		
+		try
+		{
+			Statement statement = getConnection().createStatement();
+			
+			//montagem da String SQL de consulta na tabela
+			String consultarSQL = "SELECT * FROM funcionario WHERE (cpf = '" + cpf + "')";
+			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(consultarSQL));
+			
+			ResultSet result = statement.executeQuery(consultarSQL);
+			
+			if (result.next())
+			{
+				System.out.println("Funcionário existente!");
+				System.out.println("Funcionário");
+				System.out.println("CPF........: " + result.getString("cpf"));
+				System.out.println("Nome.......: " + result.getString("nome"));
+				System.out.println("Nascimento.: " + result.getString("nasc"));
+				
+				objF.setCpf(cpf);
+				objF.setNome(result.getString("nome"));
+				JOptionPane.showMessageDialog(null, objF.getNome());
+				result.close();
+			}
+			else
+			{
+				System.out.println("Funcionário não encontrado!\n");
+				objF = null;
+			}
+			statement.close();
+		}
+		catch (SQLException e)
+		{
+			System.out.println("Problemas com o SQL de consulta de Funcionário!");
+		}
+		
+		return objF;
+	}
+
+	@Override
+	public void excluir(Object obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(Object obj) {
+		// TODO Auto-generated method stub
+		
 	}
 }

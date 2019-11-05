@@ -25,7 +25,7 @@ public abstract class DMGeral
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			//após o carregamento do driver, deve-se abrir uma conexão com o BD
-			//usando o método est�tico getConnection da classe DriverManager
+			//usando o método estático getConnection da classe DriverManager
 		   	connection = DriverManager.getConnection(url,userName,password);
 			System.out.println("Conexão ao banco de dados feita com sucesso!");
 		} 
