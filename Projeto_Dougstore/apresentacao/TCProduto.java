@@ -1,6 +1,8 @@
 package apresentacao;
 
 import java.awt.Container;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,21 +16,27 @@ public class TCProduto extends JFrame
 	public TCProduto()
 	{
 		this.setTitle("Cadastro de Produto");
-		this.setSize(400, 400);
-		this.setResizable(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(400, 220);
+		this.setResizable(false);
+		this.setVisible(true);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		Image img = tk.getImage("../Projeto_Dougstore/images/drugstore-icon.png");
+		this.setIconImage(img);
 		
 		Container c = this.getContentPane();
 		
 		JPanel painel = new JPanel();
 		c.add(painel);
 		
-		JLabel lbcodigo = new JLabel("Codigo.......................:");
-		JLabel lbfabricacao = new JLabel("Fabricação...................:");
-		JLabel lbvalidade = new JLabel("Validade.....................:");
-		JLabel lbquantidade = new JLabel("Quantidade...................:");
-		JLabel lbpreco_venda = new JLabel("Preço de venda...............:");
-		JLabel lbpreco_custo = new JLabel("Preço de custo...............:");
+		JLabel lbcodigo = new JLabel("Codigo...................:");
+		JLabel lbfabricacao = new JLabel("Fabricação...........:");
+		JLabel lbvalidade = new JLabel("Validade...............:");
+		JLabel lbquantidade = new JLabel("Quantidade..........:");
+		JLabel lbpreco_venda = new JLabel("Preço de venda...:");
+		JLabel lbpreco_custo = new JLabel("Preço de custo...:");
 		
 		JTextField tfcodigo = new JTextField(25);
 		JTextField tffabricacao = new JTextField(25);
@@ -75,13 +83,8 @@ public class TCProduto extends JFrame
 		
 		botao3.addActionListener(new ActionListener()
 				{ public void actionPerformed(ActionEvent e)
-				{ System.exit(0);
+				{ dispose();
 				}});
 		
-		//painel.setLayout(null);
-		painel.repaint();
-		
-		this.setVisible(true);
-		this.repaint();
 	}
 }

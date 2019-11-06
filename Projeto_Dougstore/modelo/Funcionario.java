@@ -27,7 +27,7 @@ public class Funcionario
 		dm_funcionario = new DMFuncionario();
 		
 		//Fazer a Conexão com o BD
-		dm_funcionario.conectaDataBase("dougstore_conexao", "root", "tether55");
+		dm_funcionario.conectaDataBase("dougstore", "root", "root");
 		
 		System.out.println("Conexão feita à tabela Funcionário com sucesso!");
 		incluir(this);

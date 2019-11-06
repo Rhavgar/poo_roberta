@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import modelo.Funcionario;
+import modelo.Cliente;
 
 
-public class TCFuncionario extends JFrame
+public class TCCliente extends JFrame 
 {
-	public TCFuncionario()
+	public TCCliente()
 	{
-		this.setTitle("Cadastro de Funcionário");
+		this.setTitle("Cadastro de Cliente");
 		this.setSize(400, 145);
 		this.setResizable(false);
 		this.setVisible(true);
@@ -56,7 +56,7 @@ public class TCFuncionario extends JFrame
 		
 		botao1.addActionListener(new ActionListener()
 			{ public void actionPerformed(ActionEvent e)
-			{ new Funcionario(tfcpf.getText(), tfnome.getText(), tfnasc.getText());
+			{ new Cliente(tfcpf.getText(), tfnome.getText(), tfnasc.getText());
 			}});
 		
 		botao2.addActionListener(new ActionListener()
@@ -70,6 +70,6 @@ public class TCFuncionario extends JFrame
 				{ public void actionPerformed(ActionEvent e)
 				{ dispose();
 				}});
-		
+
 	}
 }
