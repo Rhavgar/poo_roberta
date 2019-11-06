@@ -27,7 +27,7 @@ public class Cliente
 		dm_cliente = new DMCliente();
 		
 		//Fazer a Conexão com o BD
-		dm_cliente.conectaDataBase("dougstore", "root", "root");
+		dm_cliente.conectaDataBase("dougstore", "root", "tether55");
 		
 		System.out.println("Conexão feita à tabela Cliente com sucesso!");
 		incluir(this);

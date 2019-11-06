@@ -33,7 +33,7 @@ public class Produto
 		dm_produto = new DMProduto();
 		
 		//Fazer a Conexão com o BD
-		dm_produto.conectaDataBase("dougstore", "root", "root");
+		dm_produto.conectaDataBase("dougstore", "root", "tether55");
 		
 		System.out.println("Conexão feita à tabela Produto com sucesso!");
 		incluir(this);
