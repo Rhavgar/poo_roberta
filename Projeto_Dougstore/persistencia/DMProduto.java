@@ -114,7 +114,7 @@ public class DMProduto extends DMGeral
 					"', tarja ='" + objP.getTarja() +
 					"', tipo ='" + objP.getTipo() +
 					"', fornecedor_cnpj ='" + objP.getFornecedor_cnpj() +
-					"' WHERE cpf ='" + objP.getCodigo() + "'";
+					"' WHERE codigo ='" + objP.getCodigo() + "'";
 			
 			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(alterarSQL));
 			

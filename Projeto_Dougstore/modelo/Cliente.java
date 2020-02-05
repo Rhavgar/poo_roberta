@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.DMCliente;
 
-public class Cliente 
+public class Cliente extends Senha
 {
 	private String cpf;
 	private String nome;
@@ -16,7 +16,7 @@ public class Cliente
 	{
 		dm_cliente = new DMCliente();
 		
-		dm_cliente.conectaDataBase("dougstore", "root", "tether55");
+		dm_cliente.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Cliente com sucesso!");
 	}
@@ -29,7 +29,7 @@ public class Cliente
 		this.nascimento = "";
 		dm_cliente = new DMCliente();
 		
-		dm_cliente.conectaDataBase("dougstore", "root", "tether55");
+		dm_cliente.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Cliente com sucesso!");
 	}
@@ -40,7 +40,7 @@ public class Cliente
 		this.nascimento = nascimento;
 		dm_cliente = new DMCliente();
 		
-		dm_cliente.conectaDataBase("dougstore", "root", "tether55");
+		dm_cliente.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Cliente com sucesso!");
 	}

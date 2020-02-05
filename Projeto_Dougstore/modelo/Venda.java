@@ -1,12 +1,10 @@
 package modelo;
 
-import java.sql.Statement;
-
 import javax.swing.JOptionPane;
 
 import persistencia.DMVenda;
 
-public class Venda 
+public class Venda extends Senha
 {
 	private String id;
 	private String forma_pag;
@@ -23,7 +21,7 @@ public class Venda
 	{
 		dm_venda = new DMVenda();
 		
-		dm_venda.conectaDataBase("dougstore", "root", "tether55");
+		dm_venda.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Produto com sucesso!");
 	}
@@ -41,7 +39,7 @@ public class Venda
 		
 		dm_venda = new DMVenda();
 		
-		dm_venda.conectaDataBase("dougstore", "root", "tether55");
+		dm_venda.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Produto com sucesso!");
 	}
@@ -58,7 +56,9 @@ public class Venda
 	
 	public void adicionarItem(String lote, float qtd)
 	{		
-		float valor_total = dm_venda.total_item(lote, qtd);
+	    	//int lo = Integer.parseInt(lote);
+	    	float valor_total = dm_venda.total_item(lote, qtd);
+		
 		
 		this.item += "\nINSERT INTO item_venda (quantidade, valor_total, venda_id, estoque_lote) VALUES ("
 				+ qtd + ", " + valor_total + ", " + id + ", " + lote + ");";

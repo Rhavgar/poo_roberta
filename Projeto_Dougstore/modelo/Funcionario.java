@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import modelo.Funcionario;
 import persistencia.DMFuncionario;
 
-public class Funcionario 
+public class Funcionario extends Senha
 {
 	private String cpf;
 	private String nome;
@@ -19,7 +19,7 @@ public class Funcionario
 	{
 		dm_funcionario = new DMFuncionario();
 		
-		dm_funcionario.conectaDataBase("dougstore", "root", "tether55");
+		dm_funcionario.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Funcionário com sucesso!");
 	}
@@ -34,7 +34,7 @@ public class Funcionario
 		
 		dm_funcionario = new DMFuncionario();
 		
-		dm_funcionario.conectaDataBase("dougstore", "root", "tether55");
+		dm_funcionario.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Funcionário com sucesso!");
 	}
@@ -49,7 +49,7 @@ public class Funcionario
 		
 		dm_funcionario = new DMFuncionario();
 		
-		dm_funcionario.conectaDataBase("dougstore", "root", "tether55");
+		dm_funcionario.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Funcionário com sucesso!");
 	}

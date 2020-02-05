@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.DMEstoque;
 
-public class Estoque 
+public class Estoque extends Senha
 {
 	private String lote;
 	private String quantidade;
@@ -20,7 +20,7 @@ public class Estoque
 	{
 		dm_estoque = new DMEstoque();
 		
-		dm_estoque.conectaDataBase("dougstore", "root", "tether55");
+		dm_estoque.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Estoque com sucesso!");
 	}
@@ -38,7 +38,7 @@ public class Estoque
 		
 		dm_estoque = new DMEstoque();
 		
-		dm_estoque.conectaDataBase("dougstore", "root", "tether55");
+		dm_estoque.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Estoque com sucesso!");
 	}
@@ -54,7 +54,7 @@ public class Estoque
 		
 		dm_estoque = new DMEstoque();
 		
-		dm_estoque.conectaDataBase("dougstore", "root", "tether55");
+		dm_estoque.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Estoque com sucesso!");
 	}

@@ -36,6 +36,7 @@ public class DMVenda extends DMGeral
 			if (result == 1)
 			{
 				JOptionPane.showMessageDialog(null, "Venda registrada corretamente!", "Mensagem de Informação", JOptionPane.INFORMATION_MESSAGE);
+				this.incluirItem(objV);
 			}
 			else
 			{

@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.DMFornecedor;
 
-public class Fornecedor 
+public class Fornecedor extends Senha
 {
 	private String cnpj;
 	private String nome_fantasia;
@@ -16,7 +16,7 @@ public class Fornecedor
 	{
 		dm_fornecedor = new DMFornecedor();
 		
-		dm_fornecedor.conectaDataBase("dougstore", "root", "tether55");
+		dm_fornecedor.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Fornecedor com sucesso!");
 	}
@@ -29,7 +29,7 @@ public class Fornecedor
 		this.contato = "";
 		dm_fornecedor = new DMFornecedor();
 		
-		dm_fornecedor.conectaDataBase("dougstore", "root", "tether55");
+		dm_fornecedor.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Fornecedor com sucesso!");
 	}
@@ -40,7 +40,7 @@ public class Fornecedor
 		this.contato = contato;
 		dm_fornecedor = new DMFornecedor();
 		
-		dm_fornecedor.conectaDataBase("dougstore", "root", "tether55");
+		dm_fornecedor.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Fornecedor com sucesso!");
 	}

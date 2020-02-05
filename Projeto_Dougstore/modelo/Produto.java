@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.DMProduto;
 
-public class Produto 
+public class Produto extends Senha
 {
 	private String codigo;
 	private String nome_comercial;
@@ -19,7 +19,7 @@ public class Produto
 	{
 		dm_produto = new DMProduto();
 		
-		dm_produto.conectaDataBase("dougstore", "root", "tether55");
+		dm_produto.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Produto com sucesso!");
 	}
@@ -36,7 +36,7 @@ public class Produto
 		
 		dm_produto = new DMProduto();
 		
-		dm_produto.conectaDataBase("dougstore", "root", "tether55");
+		dm_produto.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Produto com sucesso!");
 	}
@@ -51,7 +51,7 @@ public class Produto
 		
 		dm_produto = new DMProduto();
 		
-		dm_produto.conectaDataBase("dougstore", "root", "tether55");
+		dm_produto.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Produto com sucesso!");
 	}

@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.DMFuncao;
 
-public class Funcao 
+public class Funcao extends Senha
 {
 	private String codigo;
 	private String descricao;
@@ -16,7 +16,7 @@ public class Funcao
 	{
 		dm_funcao = new DMFuncao();
 		
-		dm_funcao.conectaDataBase("dougstore", "root", "tether55");
+		dm_funcao.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Funcao com sucesso!");
 	}
@@ -29,7 +29,7 @@ public class Funcao
 		this.salario = "";
 		dm_funcao = new DMFuncao();
 		
-		dm_funcao.conectaDataBase("dougstore", "root", "tether55");
+		dm_funcao.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Funcao com sucesso!");
 	}
@@ -40,7 +40,7 @@ public class Funcao
 		this.salario = salario;
 		dm_funcao = new DMFuncao();
 		
-		dm_funcao.conectaDataBase("dougstore", "root", "tether55");
+		dm_funcao.conectaDataBase("dougstore", "root", super.getSenha());
 		
 		System.out.println("Conexão feita à tabela Funcao com sucesso!");
 	}
