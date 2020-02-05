@@ -11,7 +11,6 @@ public class DMCliente extends DMGeral
 {
 	String cpf = null;
 	
-	// implementação do método incluir
 	public void incluir(Object obj)
 	{
 		Cliente objC = (Cliente) obj;
@@ -20,13 +19,12 @@ public class DMCliente extends DMGeral
 		{
 			Statement statement = getConnection().createStatement();
 			
-			// montagem da String SQL de inclusão na tabela
 			String incluirSQL = "INSERT INTO cliente(" +
-								"cpf, nome, nasc " +
+								"cpf, nome, nascimento " +
 								") VALUES ('" +
 								objC.getCpf() + "', '" +
 								objC.getNome() + "', '" +
-								objC.getNasc() + "')";
+								objC.getNascimento() + "')";
 			
 			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(incluirSQL) + "\n");
 			
@@ -42,17 +40,18 @@ public class DMCliente extends DMGeral
 				
 				objC.setCpf("");
 				objC.setNome("");
-				objC.setNasc("");
+				objC.setNascimento("");
 			}
+			
 			statement.close();
 		}
+		
 		catch (SQLException e)
 		{
-			System.out.println("Problemas com o SQL de inclusão de cliente");
+			System.out.println("Problemas com o SQL de inclusão de Cliente");
 		}
 	}
 	
-	// implementação do método consultar
 	public Object consultar(Object obj)
 	{
 		Cliente objC = (Cliente) obj;
@@ -61,8 +60,8 @@ public class DMCliente extends DMGeral
 		{
 			Statement statement = getConnection().createStatement();
 			
-			//montagem da String SQL de consulta na tabela
-			String consultarSQL = "SELECT * FROM cliente WHERE (cpf = '" + objC.getCpf() + "')";
+			String consultarSQL = "SELECT * FROM cliente WHERE cpf = '" + objC.getCpf() + "'";
+			
 			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(consultarSQL));
 			
 			ResultSet result = statement.executeQuery(consultarSQL);
@@ -73,7 +72,7 @@ public class DMCliente extends DMGeral
 				System.out.println("Cliente");
 				System.out.println("CPF........: " + result.getString("cpf"));
 				System.out.println("Nome.......: " + result.getString("nome"));
-				System.out.println("Nascimento.: " + result.getString("nasc"));
+				System.out.println("Nascimento.: " + result.getString("nascimento"));
 				result.close();
 			}
 			else
@@ -81,8 +80,10 @@ public class DMCliente extends DMGeral
 				System.out.println("Cliente não encontrado!\n");
 				objC = null;
 			}
+			
 			statement.close();
 		}
+		
 		catch (SQLException e)
 		{
 			System.out.println("Problemas com o SQL de consulta de Cliente!");
@@ -91,19 +92,92 @@ public class DMCliente extends DMGeral
 		return objC;
 	}
 	
-	public Cliente buscar(String cpf)
+	public void alterar(Object obj)
 	{
-		Cliente objC = new Cliente();
+		Cliente objC = (Cliente) obj;
 		
 		try
 		{
 			Statement statement = getConnection().createStatement();
 			
-			//montagem da String SQL de consulta na tabela
-			String consultarSQL = "SELECT * FROM cliente WHERE (cpf = '" + cpf + "')";
-			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(consultarSQL));
+			String alterarSQL = "UPDATE cliente SET nome ='" + objC.getNome() + "', nascimento ='" + objC.getNascimento() + "' WHERE cpf ='" + objC.getCpf() + "'";
 			
-			ResultSet result = statement.executeQuery(consultarSQL);
+			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(alterarSQL));
+			
+			int result = statement.executeUpdate(alterarSQL);
+			
+			if (result == 1)
+			{
+				JOptionPane.showMessageDialog(null, "Cliente alterado corretamente!", "Mensagem de Informação", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "Erro ao alterar cliente!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+				
+				objC.setCpf("");
+				objC.setNome("");
+				objC.setNascimento("");
+			}
+						
+			statement.close();
+		}
+		
+		catch (SQLException e)
+		{
+			System.out.println("Problemas com o SQL de alteração de cliente");
+		}
+	}
+	
+	public void excluir(Object obj) 
+	{
+		Cliente objC = (Cliente) obj;
+		
+		try
+		{
+			Statement statement = getConnection().createStatement();
+			
+			String excluirSQL = "DELETE FROM cliente WHERE cpf='" + objC.getCpf() + "'";
+			
+			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(excluirSQL));
+			
+			int result = statement.executeUpdate(excluirSQL);
+			
+			if (result == 1)
+			{
+				JOptionPane.showMessageDialog(null, "Cliente excluído corretamente!", "Mensagem de Informação", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "Erro ao excluir cliente!", "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+				
+				objC.setCpf("");
+				objC.setNome("");
+				objC.setNascimento("");
+			}
+						
+			statement.close();
+		}
+		
+		catch (SQLException e)
+		{
+			System.out.println("Problemas com o SQL de exclusão de Cliente");
+		}
+		
+	}
+	
+	public Cliente buscar(Object obj)
+	{
+		Cliente objC = (Cliente) obj;
+		
+		try
+		{
+			Statement statement = getConnection().createStatement();
+			
+			String buscarSQL = "SELECT * FROM cliente WHERE cpf = '" + objC.getCpf() + "'";
+			
+			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(buscarSQL));
+			
+			ResultSet result = statement.executeQuery(buscarSQL);
 			
 			if (result.next())
 			{
@@ -111,11 +185,10 @@ public class DMCliente extends DMGeral
 				System.out.println("Cliente");
 				System.out.println("CPF........: " + result.getString("cpf"));
 				System.out.println("Nome.......: " + result.getString("nome"));
-				System.out.println("Nascimento.: " + result.getString("nasc"));
+				System.out.println("Nascimento.: " + result.getString("nascimento"));
 				
-				objC.setCpf(cpf);
 				objC.setNome(result.getString("nome"));
-				JOptionPane.showMessageDialog(null, objC.getNome());
+				objC.setNascimento(result.getString("nascimento"));
 				result.close();
 			}
 			else
@@ -125,6 +198,7 @@ public class DMCliente extends DMGeral
 			}
 			statement.close();
 		}
+		
 		catch (SQLException e)
 		{
 			System.out.println("Problemas com o SQL de consulta de Cliente!");
@@ -132,16 +206,49 @@ public class DMCliente extends DMGeral
 		
 		return objC;
 	}
-
-	@Override
-	public void excluir(Object obj) {
-		// TODO Auto-generated method stub
+	
+	public String relatorio()
+	{
+		String resultado = "";
 		
-	}
+		try
+		{
+			Statement statement = getConnection().createStatement();
+			
+			String relatorioSQL = "SELECT * FROM cliente;";
+					
+			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(relatorioSQL));
+			
+			ResultSet result = statement.executeQuery(relatorioSQL);
+			
+			if (result.next()) 
+			{
+				do
+				{
+					resultado += "Nome: " + result.getString("nome");
+					resultado += "\nCPF: " + result.getString("cpf");
+					resultado += "\nData de Nascimento: " + result.getString("nascimento");
+					resultado += ("\n\n\n");
+				} 
+				while (result.next());
+				
+				result.close();
+			} 
+			else 
+			{
+				resultado = "Nenhum cliente foi encontrado";
+			}
+			
+			statement.close();
 
-	@Override
-	public void alterar(Object obj) {
-		// TODO Auto-generated method stub
+		}
 		
+		catch (SQLException e)
+		{
+			System.out.println("Problemas com o SQL de relatorio de Cliente!"); 
+		}
+		 
+		return resultado;
 	}
+	
 }

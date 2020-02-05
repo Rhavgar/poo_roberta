@@ -25,7 +25,6 @@ public class JanelaPrincipal extends JFrame
     private int screenWidth;
     private Image wallpaper;
 
-    //CONSTRUTOR DA CLASSE
 	public JanelaPrincipal()
     {   
     	this.setTitle("Farmácia Dougstore");
@@ -77,13 +76,16 @@ public class JanelaPrincipal extends JFrame
         }
     }
     
-
-// ********************************
-// Início da Definição dos Métodos
-// ********************************
-
-// Método Janela Novo Funcionário
-
+    public void jCliente()
+    {
+    	TCCliente objTCC = new TCCliente();
+    }
+    
+    public void jFuncao()
+    {
+    	TCFuncao objTCFa = new TCFuncao();
+    }
+    
     public void jFuncionario()
     {  	
     	TCFuncionario objTCF = new TCFuncionario();	
@@ -94,12 +96,21 @@ public class JanelaPrincipal extends JFrame
     	TCProduto objTCP = new TCProduto();
     }
     
-    public void jCliente()
+    public void jFornecedor()
     {
-    	TCCliente objTCC = new TCCliente();
+    	TCFornecedor objTCFo = new TCFornecedor();
+    }
+    
+    public void jEstoque()
+    {
+    	TCEstoque objTCE = new TCEstoque();
+    }
+    
+    public void jVenda()
+    {
+    	TCVenda objTCV = new TCVenda();
     }
 
-// Método Janela Sair
    public void jSair()
    { 
 	   this.dispose();

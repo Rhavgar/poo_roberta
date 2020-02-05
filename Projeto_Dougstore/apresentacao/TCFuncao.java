@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import modelo.Cliente;
+import modelo.Funcao;
 
 
-public class TCCliente extends JFrame 
+public class TCFuncao extends JFrame 
 {
-	public TCCliente()
+	public TCFuncao()
 	{
-		this.setTitle("Cadastro de Cliente");
+		this.setTitle("Cadastro de Funcao");
 		this.setSize(400, 175);
 		this.setResizable(false);
 		this.setVisible(true);
@@ -31,20 +31,20 @@ public class TCCliente extends JFrame
 		JPanel painel = new JPanel();
 		c.add(painel);
 		
-		JLabel lbcpf = new JLabel("CPF..................:");
-		JLabel lbnome = new JLabel("Nome...............:");
-		JLabel lbnascimento = new JLabel("Nascimento....:");
+		JLabel lbcodigo = new JLabel("Codigo.........:");
+		JLabel lbdescricao = new JLabel("Descricao....:");
+		JLabel lbsalario = new JLabel("Salario.........:");
 		
-		JTextField tfcpf = new JTextField(25);
-		JTextField tfnome = new JTextField(25);
-		JTextField tfnascimento = new JTextField(25);
+		JTextField tfcodigo = new JTextField(25);
+		JTextField tfdescricao = new JTextField(25);
+		JTextField tfsalario = new JTextField(25);
 		
-		painel.add(lbcpf);
-		painel.add(tfcpf);
-		painel.add(lbnome);
-		painel.add(tfnome);
-		painel.add(lbnascimento);
-		painel.add(tfnascimento);
+		painel.add(lbcodigo);
+		painel.add(tfcodigo);
+		painel.add(lbdescricao);
+		painel.add(tfdescricao);
+		painel.add(lbsalario);
+		painel.add(tfsalario);
 		
 		JButton botao1 = new JButton("Cadastrar");
 		JButton botao2 = new JButton("Buscar");
@@ -64,8 +64,8 @@ public class TCCliente extends JFrame
 		{ 
 			public void actionPerformed(ActionEvent e)
 			{ 
-				Cliente cliente = new Cliente(tfcpf.getText(), tfnome.getText(), tfnascimento.getText());
-				cliente.incluir();
+				Funcao funcao = new Funcao(tfcodigo.getText(), tfdescricao.getText(), tfsalario.getText());
+				funcao.incluir();
 			}
 		});
 		
@@ -73,10 +73,10 @@ public class TCCliente extends JFrame
 		{ 
 			public void actionPerformed(ActionEvent e)
 			{ 
-				Cliente cliente = new Cliente(tfcpf.getText());
-				cliente.buscar();
-				tfnome.setText(cliente.getNome());
-				tfnascimento.setText(cliente.getNascimento());
+				Funcao funcao = new Funcao(tfcodigo.getText());
+				funcao.buscar();
+				tfdescricao.setText(funcao.getDescricao());
+				tfsalario.setText(funcao.getSalario());
 			}
 		});
 		
@@ -84,8 +84,8 @@ public class TCCliente extends JFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Cliente cliente = new Cliente(tfcpf.getText(), tfnome.getText(), tfnascimento.getText());
-				cliente.alterar();
+				Funcao funcao = new Funcao(tfcodigo.getText(), tfdescricao.getText(), tfsalario.getText());
+				funcao.alterar();
 			}
 		});
 		
@@ -93,8 +93,8 @@ public class TCCliente extends JFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Cliente cliente = new Cliente(tfcpf.getText());
-				cliente.excluir();
+				Funcao funcao = new Funcao(tfcodigo.getText());
+				funcao.excluir();
 			}
 		});
 		
@@ -103,8 +103,8 @@ public class TCCliente extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{ 
 				
-				Cliente cliente = new Cliente();
-				TelaRelatorio relatorio = new TelaRelatorio(cliente.relatorio());
+				Funcao funcao = new Funcao();
+				TelaRelatorio relatorio = new TelaRelatorio(funcao.relatorio());
 			}
 		});
 		

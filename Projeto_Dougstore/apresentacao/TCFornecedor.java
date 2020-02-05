@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import modelo.Cliente;
+import modelo.Fornecedor;
 
 
-public class TCCliente extends JFrame 
+public class TCFornecedor extends JFrame 
 {
-	public TCCliente()
+	public TCFornecedor()
 	{
-		this.setTitle("Cadastro de Cliente");
+		this.setTitle("Cadastro de Fornecedor");
 		this.setSize(400, 175);
 		this.setResizable(false);
 		this.setVisible(true);
@@ -31,20 +31,20 @@ public class TCCliente extends JFrame
 		JPanel painel = new JPanel();
 		c.add(painel);
 		
-		JLabel lbcpf = new JLabel("CPF..................:");
-		JLabel lbnome = new JLabel("Nome...............:");
-		JLabel lbnascimento = new JLabel("Nascimento....:");
+		JLabel lbcnpj = new JLabel("CNPJ...................:");
+		JLabel lbnome_fantasia = new JLabel("Nome Fantasia..:");
+		JLabel lbcontato = new JLabel("Contato...............:");
 		
-		JTextField tfcpf = new JTextField(25);
-		JTextField tfnome = new JTextField(25);
-		JTextField tfnascimento = new JTextField(25);
+		JTextField tfcnpj = new JTextField(25);
+		JTextField tfnome_fantasia = new JTextField(25);
+		JTextField tfcontato = new JTextField(25);
 		
-		painel.add(lbcpf);
-		painel.add(tfcpf);
-		painel.add(lbnome);
-		painel.add(tfnome);
-		painel.add(lbnascimento);
-		painel.add(tfnascimento);
+		painel.add(lbcnpj);
+		painel.add(tfcnpj);
+		painel.add(lbnome_fantasia);
+		painel.add(tfnome_fantasia);
+		painel.add(lbcontato);
+		painel.add(tfcontato);
 		
 		JButton botao1 = new JButton("Cadastrar");
 		JButton botao2 = new JButton("Buscar");
@@ -64,8 +64,8 @@ public class TCCliente extends JFrame
 		{ 
 			public void actionPerformed(ActionEvent e)
 			{ 
-				Cliente cliente = new Cliente(tfcpf.getText(), tfnome.getText(), tfnascimento.getText());
-				cliente.incluir();
+				Fornecedor fornecedor = new Fornecedor(tfcnpj.getText(), tfnome_fantasia.getText(), tfcontato.getText());
+				fornecedor.incluir();
 			}
 		});
 		
@@ -73,10 +73,10 @@ public class TCCliente extends JFrame
 		{ 
 			public void actionPerformed(ActionEvent e)
 			{ 
-				Cliente cliente = new Cliente(tfcpf.getText());
-				cliente.buscar();
-				tfnome.setText(cliente.getNome());
-				tfnascimento.setText(cliente.getNascimento());
+				Fornecedor fornecedor = new Fornecedor(tfcnpj.getText());
+				fornecedor.buscar();
+				tfnome_fantasia.setText(fornecedor.getNome_fantasia());
+				tfcontato.setText(fornecedor.getContato());
 			}
 		});
 		
@@ -84,8 +84,8 @@ public class TCCliente extends JFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Cliente cliente = new Cliente(tfcpf.getText(), tfnome.getText(), tfnascimento.getText());
-				cliente.alterar();
+				Fornecedor fornecedor = new Fornecedor(tfcnpj.getText(), tfnome_fantasia.getText(), tfcontato.getText());
+				fornecedor.alterar();
 			}
 		});
 		
@@ -93,8 +93,8 @@ public class TCCliente extends JFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Cliente cliente = new Cliente(tfcpf.getText());
-				cliente.excluir();
+				Fornecedor fornecedor = new Fornecedor(tfcnpj.getText());
+				fornecedor.excluir();
 			}
 		});
 		
@@ -103,8 +103,8 @@ public class TCCliente extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{ 
 				
-				Cliente cliente = new Cliente();
-				TelaRelatorio relatorio = new TelaRelatorio(cliente.relatorio());
+				Fornecedor fornecedor = new Fornecedor();
+				TelaRelatorio relatorio = new TelaRelatorio(fornecedor.relatorio());
 			}
 		});
 		
