@@ -1,15 +1,14 @@
-Bem vindo ao meu humilde projetinho de farm·cia!
+Bem vindo ao meu humilde projetinho de farm√°cia!
 
 O main encontra-se em:
 "../Projeto_Dougstore/apresentacao/executavel.java"
 
-Editar a conex„o com o banco de dados em:
-"../Projeto_Dougstore/modelo/funcionario.java"
-"../Projeto_Dougstore/modelo/produto.java"
-"../Projeto_Dougstore/modelo/cliente.java"
+Editar a senha de conex√£o com o banco de dados em:
+"../Projeto_Dougstore/modelo/Senha.java"
 
 O script do bando de dados encontra-se em:
 "../Projeto_Dougstore/mysql/dougstore_script_nodata"
+"../Projeto_Dougstore/mysql/dougstore_script_data"
 
 O conector.JAR do MYSQL encontra-se em:
 "../Projeto_Dougstore/mysql/mysql-connector-java-8.0.16.jar"
