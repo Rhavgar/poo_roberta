@@ -1,7 +1,6 @@
 package persistencia;
 
 import modelo.Funcionario;
-import modelo.Funcionario;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,8 +24,8 @@ public class DMFuncionario extends DMGeral
 								") VALUES ('" +
 								objF.getCpf() + "', '" +
 								objF.getNome() + "', '" +
-								objF.getNascimento() + "'," +
-								objF.getSup() + "'," +
+								objF.getNascimento() + "', '" +
+								objF.getSup() + "', '" +
 								objF.getFuncao() + "')";
 			
 			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(incluirSQL) + "\n");
@@ -196,12 +195,12 @@ public class DMFuncionario extends DMGeral
 				System.out.println("Nome.......: " + result.getString("nome"));
 				System.out.println("Nascimento.: " + result.getString("nascimento"));
 				System.out.println("Supervisor.: " + result.getString("supervisor_cpf"));
-				System.out.println("Funcao.....: " + result.getString("funcao"));
+				System.out.println("Funcao.....: " + result.getString("funcao_codigo"));
 				
 				objF.setNome(result.getString("nome"));
 				objF.setNascimento(result.getString("nascimento"));
 				objF.setSup(result.getString("supervisor_cpf"));
-				objF.setFuncao(result.getString("funcao"));
+				objF.setFuncao(result.getString("funcao_codigo"));
 				result.close();
 			}
 			else

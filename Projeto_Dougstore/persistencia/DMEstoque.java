@@ -118,7 +118,7 @@ public class DMEstoque extends DMGeral
 					"', fabricacao ='" + objE.getFabricacao() +
 					"', validade ='" + objE.getValidade() +
 					"', produto_codigo ='" + objE.getProduto_codigo() +
-					"' WHERE cpf ='" + objE.getLote() + "'";
+					"' WHERE lote ='" + objE.getLote() + "'";
 			
 			System.out.println("Enviando código SQL: " + getConnection().nativeSQL(alterarSQL));
 			

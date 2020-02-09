@@ -68,7 +68,7 @@ public class DMVenda extends DMGeral
 			
 			if (result == 1)
 			{
-				JOptionPane.showMessageDialog(null, "Item registrada corretamente!", "Mensagem de Informação", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Item registrado corretamente!", "Mensagem de Informação", JOptionPane.INFORMATION_MESSAGE);
 			}
 			else
 			{
